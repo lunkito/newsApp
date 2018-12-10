@@ -5,7 +5,7 @@
 </ul> -->
 
 <mat-toolbar color="primary">
-  <button mat-button (click)="sidenav.open()" ><mat-icon>menu</mat-icon></button>
+  <button mat-button (click)="sidenav.toggle()" ><mat-icon>menu</mat-icon></button>
   <span>News Headlines</span>  
   <span class="example-spacer"></span>
   <button mat-button [matMenuTriggerFor]="appMenu"><mat-icon>settings</mat-icon></button>
@@ -19,14 +19,12 @@
   <mat-sidenav #sidenav class="example-sidenav">
     <mat-list class="list-nav">
         <mat-list-item class="list-item" *ngFor="let source of mSources" (click)="searchArticles(source.id);sidenav.close();">
-          
           <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}" class="example-header-image"></div>
-          
-          <span class="source-name"> {{source.name}}</span>
-        
+          <span class="source-name"> {{source.name}}</span>      
         </mat-list-item>
     </mat-list>
   </mat-sidenav>
+
   <mat-card class="example-card"  *ngFor="let article of mArticles">
     <mat-card-header>
       <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}" class="example-header-image"></div>
