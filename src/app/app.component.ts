@@ -32,6 +32,6 @@ export class AppComponent implements OnInit {
   }
 
   searchArticles(source) {
-    this.news.getArticleBySource(source).subscribe(response => console.log(response));
+    this.news.getArticleBySource(source).subscribe(response => this.mArticles = response['articles']);
   }
 }
